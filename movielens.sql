@@ -1,3 +1,104 @@
+1//SELECT * FROM movielens.movies; //
+2//SELECT  title, id
+FROM movielens.movies; ANSWER2 //
+3 //SELECT  title
+FROM movielens.movies
+WHERE id=485//
+4 //SELECT  id
+FROM movielens.movies
+WHERE title="made in america (1993)";//
+5 //SELECT  title
+FROM movielens.movies
+ORDER BY title 
+LIMIT 10;//
+6 //SELECT  title
+FROM movielens.movies
+WHERE title like "%(2002)%";//
+7 //SELECT  title
+FROM movielens.movies
+WHERE title like "%godfather, the%"//
+8 // SELECT  *
+FROM movielens.movies
+WHERE genres like "comedy"//
+9 //SELECT  title
+FROM movielens.movies m
+WHERE m.genres LIKE "%comedy%" AND m.title LIKE "%(2000)%"//
+10 SELECT  title
+FROM movielens.movies m
+WHERE m.title LIKE "%death%" AND m.genres LIKE "%comedy%";
+11 SELECT  title
+FROM movielens.movies m
+WHERE m.title LIKE "%super%" AND (m.title LIKE "%2001%" OR m.title LIKE "%2002%")
+12 INSERT INTO movielens.Actors (actorname, charactername, movieid)
+VALUES ("actor1", "char1", 1089),
+("actor2", "char2", 1089),
+("actor3", "char3", 1089),
+("actor4", "char4", 1089),
+("actor5", "char5", 1089),
+("actor6", "char6", 1089),
+("actor7", "char7", 1089),
+("actor8", "char8", 1089),
+("actor9", "char9", 1089),
+("actor10", "char10", 1089),
+("actor11", "char11", 1227),
+("actor12", "char12", 1227),
+("actor13", "char13", 1227),
+("actor14", "char14", 1227),
+("actor15", "char15", 1227),
+("actor16", "char16", 1227),
+("actor17", "char17", 1227),
+("actor18", "char18", 1227),
+("actor19", "char19", 1227),
+("actor20", "char20", 1227),
+("actor21", "char21", 849),
+("actor22", "char22", 849),
+("actor23", "char23", 849),
+("actor24", "char24", 849),
+("actor25", "char25", 849),
+("actor26", "char26", 849),
+("actor27", "char27", 849),
+("actor28", "char28", 849),
+("actor29", "char29", 849),
+("actor30", "char30", 849);
+13 UPDATE movielens.movies
+SET mpaa = "G"
+WHERE id = 1;
+
+UPDATE movielens.movies
+SET mpaa = "PG-13"
+WHERE id = 2;
+
+UPDATE movielens.movies
+SET mpaa = "PG-13"
+WHERE id = 3;
+
+UPDATE movielens.movies
+SET mpaa = "R"
+WHERE id = 4;
+
+UPDATE movielens.movies
+SET mpaa = "PG"
+WHERE id = 5;
+14 SELECT m.id, m.title, avg(r.rating) as avgrating
+from movies m
+left join ratings r on m.id = r.movie_id
+where m.title like "%godfather%"
+group by m.id
+15 SELECT movies.title, ratings.rating, ratings.timestamp FROM movielens.movies
+LEFT JOIN ratings  ON movies.id = ratings.movie_id
+WHERE movies.title LIKE '%Godfather,%'
+ORDER BY ratings.timestamp ASC;
+16 SELECT movies.title, links.imdb_Id FROM movies
+LEFT JOIN links  ON movies.id = links.imdb_id
+WHERE movies.title LIKE '%2002%'
+17 SELECT movies.title, ratings.rating
+FROM movies
+Left JOIN ratings ON movies.id = ratings.movie_id
+WHERE ISNULL(ratings.rating) 
+Limit 10
+
+
+
 # ************************************************************
 # Sequel Pro SQL dump
 # Version 4541
